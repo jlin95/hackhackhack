@@ -1,13 +1,13 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Text style={styles.baseText}>It took me one whole freaking whole day to set up React Native.</Text>
+        <Button onPress={() => {Alert.alert('Please select a device to scan');}}
+          title="Click to scan"/>
       </View>
     );
   }
@@ -20,4 +20,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  baseText: {
+    color: 'red',
+  }
+
 });
