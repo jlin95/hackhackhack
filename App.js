@@ -37,6 +37,7 @@ export default class App extends React.Component {
 
   render() {
     return (
+<<<<<<< 0927f9a2fe43490286e8c5bb67c7f49e7178d092
       <View style={styles.window}>
         <StatusBar backgroundColor={Colors.STATUS_BAR_COLOR} />
         <View style={styles.container}>
@@ -60,6 +61,12 @@ export default class App extends React.Component {
           <Text>Changes you make will automatically reload.</Text>
           <Text>Shake your phone to open the developer menu.</Text>
         </View>
+=======
+      <View style={styles.container}>
+        <Text style={styles.baseText}>It took me one whole freaking whole day to set up React Native.</Text>
+        <Button onPress={() => {Alert.alert('Please select a device to scan');}}
+          title="Click to scan"/>
+>>>>>>> Added button to app
       </View>
     );
   }
@@ -81,4 +88,8 @@ const styles = StyleSheet.create({
     height: 56,
     alignSelf: 'stretch',
   },
+  baseText: {
+    color: 'red',
+  }
+
 });
