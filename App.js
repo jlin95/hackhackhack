@@ -81,4 +81,8 @@ const styles = StyleSheet.create({
     height: 56,
     alignSelf: 'stretch',
   },
+  baseText: {
+    color: 'red',
+  }
+
 });
