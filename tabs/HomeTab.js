@@ -10,7 +10,7 @@ export default class HomeTab extends React.Component {
             />
         <Text style={styles.text}>Hooray! Your smart home devices are being secured</Text>
         <Text style={styles.textSmall}>Last threat scan: 0800 GMT +8 at 1/2/2018</Text>
-        <Text style={styles.textSmall}>Smart Home Devices Status: <Text style={styles.status}>Protected</Text> </Text>
+        <Text style={[styles.textSmall, styles.bottomGap]}>Smart Home Devices Status: <Text style={styles.status}>Protected</Text> </Text>
         <Button style={styles.button}
           onPress={() => { Alert.alert('You tapped the button!');}}
           title="DO A QUICK SCAN NOW"
@@ -30,29 +30,32 @@ const styles = StyleSheet.create({
     height: 200,
     width: 272,
     alignContent: 'center',
-    marginTop: 40,
+    marginTop: 20,
   },
   button: {
-
     backgroundColor: '#22f6e8',
   },
   text: {
     color: 'grey',
     textAlign: 'center',
-    fontSize: 24,
-    marginTop: 24,
+    fontSize: 20,
+    marginTop: 18,
+    marginBottom: 18,
     fontFamily: 'sourceSansProLight',
   },
   textSmall: {
     color: 'grey',
     textAlign: 'center',
-    fontSize: 16,
-    marginTop: 24,
+    fontSize: 12,
+    marginBottom: 3,
     fontFamily: 'sourceSansProLight',
   },
+  bottomGap: {
+    marginBottom: 15,
+  },
   status: {
-    color: Colors.TOOLBAR_GRADIENT_COLOR_START,
-    fontSize: 16,
+    color: Colors.STATUS_BAR_COLOR,
+    fontSize: 12,
     fontFamily: 'sourceSansProBold',
   }
 
