@@ -66,7 +66,10 @@ export default class App extends React.Component {
         <Text style={styles.baseText}>It took me one whole freaking whole day to set up React Native.</Text>
         <Button onPress={() => {Alert.alert('Please select a device to scan');}}
           title="Click to scan"/>
+<<<<<<< HEAD
 >>>>>>> Added button to app
+=======
+>>>>>>> 578017bd425fc818aaf321dde13d56b440330266
       </View>
     );
   }
@@ -78,6 +81,7 @@ const styles = StyleSheet.create({
     // backgroundColor: Colors.STATUS_BAR_COLOR,
     alignItems: 'center',
   },
+<<<<<<< HEAD
   container: {
     backgroundColor: '#fff',
     marginTop: 24,
@@ -88,6 +92,8 @@ const styles = StyleSheet.create({
     height: 56,
     alignSelf: 'stretch',
   },
+=======
+>>>>>>> 578017bd425fc818aaf321dde13d56b440330266
   baseText: {
     color: 'red',
   }
