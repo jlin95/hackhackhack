@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Dimensions, Text, View, StatusBar, ToolbarAndroid } from 'react-native';
-import { LinearGradient } from 'expo';
+import { AppLoading, LinearGradient, Font } from 'expo';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 
 import Colors from './Colors';
@@ -10,6 +10,7 @@ import HomeTab from './tabs/HomeTab';
 
 export default class App extends React.Component {
   state = {
+    loaded: false,
     navigationState: {
       index: 0,
       routes: [
@@ -26,7 +27,35 @@ export default class App extends React.Component {
     about: () => <AboutTab />
   })
 
-  renderHeader = props => <TabBar {...props} />;
+  componentWillMount() {
+    this.loadAssets();
+  }
+
+  async loadAssets() {
+    await Font.loadAsync({
+      sourceSansProLight: require('./assets/fonts/SourceSansPro-Light.ttf'),
+      sourceSansProBold: require('./assets/fonts/SourceSansPro-Bold.ttf'),
+      sourceSansProSemiBold: require('./assets/fonts/SourceSansPro-SemiBold.ttf'),
+    });
+
+    this.setState({
+      ...this.state,
+      loaded: true
+    })
+  }
+
+  renderHeader(props) {
+    return (
+      <LinearGradient
+        colors={[ Colors.TOOLBAR_GRADIENT_COLOR_START, Colors.TOOLBAR_GRADIENT_COLOR_END ]}
+        start={[0.0, 0.0]}
+        end={[1.0, 1.0]}>
+        <TabBar
+          style={{ backgroundColor: 'transparent' }}
+          labelStyle={{ fontFamily: 'sourceSansProBold' }} {...props} />
+      </LinearGradient>
+    );
+  }
 
   handleIndexChange(index) {
     this.setState({
@@ -39,6 +68,10 @@ export default class App extends React.Component {
   }
 
   render() {
+    if (!this.state.loaded) {
+      return <AppLoading />;
+    }
+
     return (
       <View style={styles.window}>
         <StatusBar backgroundColor={Colors.STATUS_BAR_COLOR} />
@@ -49,8 +82,9 @@ export default class App extends React.Component {
             end={[1.0, 1.0]}>
             <ToolbarAndroid
               style={styles.toolbar}
-              title="Protego"
-              titleColor="#fff" />
+              titleColor="#fff">
+              <Text style={styles.toolbarTitle}>Yong Jie's Protego</Text>
+            </ToolbarAndroid>
           </LinearGradient>
           <TabViewAnimated
             style={{ flex: 1 }}
@@ -80,5 +114,10 @@ const styles = StyleSheet.create({
   toolbar: {
     height: 56,
     alignSelf: 'stretch',
+  },
+  toolbarTitle: {
+    fontFamily: 'sourceSansProLight',
+    fontSize: 20,
+    color: '#fff'
   },
 });
