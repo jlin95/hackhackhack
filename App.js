@@ -4,6 +4,9 @@ import { LinearGradient } from 'expo';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 
 import Colors from './Colors';
+import AboutTab from './tabs/AboutTab';
+import DevicesTab from './tabs/DevicesTab';
+import HomeTab from './tabs/HomeTab';
 
 export default class App extends React.Component {
   state = {
@@ -18,9 +21,9 @@ export default class App extends React.Component {
   }
 
   renderScene = SceneMap({
-    home: () => <View style={{ backgroundColor: '#ff4081' }} />,
-    devices: () => <View style={{ backgroundColor: '#673ab7' }} />,
-    about: () => <View style={{ backgroundColor: '#673ab7' }} />
+    home: () => <HomeTab />,
+    devices: () => <DevicesTab />,
+    about: () => <AboutTab />
   })
 
   renderHeader = props => <TabBar {...props} />;
