@@ -1,0 +1,5 @@
+export default Colors = {
+    STATUS_BAR_COLOR: '#2196f3',
+    TOOLBAR_GRADIENT_COLOR_START: '#47cec0',
+    TOOLBAR_GRADIENT_COLOR_END: '#22f6e8'
+};
