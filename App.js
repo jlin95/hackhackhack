@@ -57,11 +57,8 @@ export default class App extends React.Component {
             navigationState={this.state.navigationState}
             renderScene={this.renderScene}
             renderHeader={this.renderHeader}
-            onIndexChange={this.handleIndexChange}
+            onIndexChange={this.handleIndexChange.bind(this)}
             initialLayout={{ height: 54, width: Dimensions.get('window').width }} />
-          <Text>Hello world!</Text>
-          <Text>Changes you make will automatically reload.</Text>
-          <Text>Shake your phone to open the developer menu.</Text>
         </View>
       </View>
     );
