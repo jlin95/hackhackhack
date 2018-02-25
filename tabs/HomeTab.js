@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, Image } from 'react-native';
+import { StyleSheet, View, Text, Button, Image, Alert } from 'react-native';
 import Colors from '../Colors';
 
 export default class HomeTab extends React.Component {
@@ -12,9 +12,9 @@ export default class HomeTab extends React.Component {
         <Text style={styles.textSmall}>Last threat scan: 0800 GMT +8 at 1/2/2018</Text>
         <Text style={styles.textSmall}>Smart Home Devices Status: <Text style={styles.status}>Protected</Text> </Text>
         <Button style={styles.button}
-          onPress={this._onPressButton}
+          onPress={() => { Alert.alert('You tapped the button!');}}
           title="DO A QUICK SCAN NOW"
-          color="#22f6e8"
+          //color="#22f6e8"
         />
       </View>
     );
@@ -31,6 +31,10 @@ const styles = StyleSheet.create({
     width: 272,
     alignContent: 'center',
     marginTop: 40,
+  },
+  button: {
+
+    backgroundColor: '#22f6e8',
   },
   text: {
     color: 'grey',
