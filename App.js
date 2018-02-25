@@ -60,6 +60,7 @@ export default class App extends React.Component {
             onIndexChange={this.handleIndexChange.bind(this)}
             initialLayout={{ height: 54, width: Dimensions.get('window').width }} />
         </View>
+
       </View>
     );
   }
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
     height: 56,
     alignSelf: 'stretch',
   },
+
   baseText: {
     color: 'red',
   }
